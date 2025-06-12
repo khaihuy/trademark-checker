@@ -1,0 +1,8 @@
+[phases.build]
+nixPkgs = ["chromium", "nss", "fontconfig", "freetype", "alsa-lib", "glib", "gtk3", "libx11", "libxcomposite", "libxdamage", "libxrandr", "libxss", "libxtst", "libnss", "cups", "libxshmfence", "libxcb"]
+
+[phases.install]
+cmds = ["npm install"]
+
+[start]
+cmd = "node server.js"
