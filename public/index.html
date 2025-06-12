@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Trademark Checker</title>
+</head>
+<body>
+  <h1>Trademark Checker</h1>
+  <input type="text" id="brand" placeholder="Enter brand name">
+  <button onclick="checkTrademark()">Check</button>
+  <pre id="result"></pre>
+
+  <script>
+    async function checkTrademark() {
+      const brand = document.getElementById('brand').value;
+      const res = await fetch('/api/check', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ brand })
+      });
+      const data = await res.json();
+      document.getElementById('result').textContent = JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>
